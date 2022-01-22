@@ -8,18 +8,18 @@
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="/adminlte/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="<?php echo env('APP_URL') ?>/adminlte/plugins/fontawesome-free/css/all.min.css">
   <!-- icheck bootstrap -->
-  <link rel="stylesheet" href="/adminlte/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <link rel="stylesheet" href="<?php echo env('APP_URL') ?>/adminlte/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="/adminlte/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="<?php echo env('APP_URL') ?>/adminlte/dist/css/adminlte.min.css">
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="/adminlte/index2.html" class="h1"><b>Admin</b>LTE</a>
+      <a href="<?php echo env('APP_URL') ?>/adminlte/index2.html" class="h1"><b>Admin</b>LTE</a>
     </div>
     <div class="card-body">
       <p class="login-box-msg">Sign in to start your session</p>
@@ -28,7 +28,7 @@
           <b>Opps!</b> {{session('error')}}
       </div>
       @endif
-      <form action="/members/login" method="post">
+      <form action="/admin/login" method="post">
         @csrf
         <div class="input-group mb-3">
           <input type="email" name="email" class="form-control" placeholder="Email">

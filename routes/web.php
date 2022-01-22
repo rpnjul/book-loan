@@ -20,4 +20,24 @@ Route::get('/', function () {
 
 Route::prefix('members')->group(function () {
     Route::post('login', 'AuthController@login');
+
+    Route::middleware('auth:web')->group(function () {
+        Route::get('','MemberController@index')->name('member.dashboard');
+        Route::get('loan','MemberController@loan')->name('member.loan');
+    });
+});
+
+
+Route::prefix('admin')->group(function(){
+    Route::get('login',function(){
+        return view('admin.login');
+    });
+    Route::post('login', 'AuthController@admin');
+
+    Route::middleware('auth:admin')->group(function () {
+        Route::get('/','AdminController@index')->name('admin.dashboard');
+        Route::get('books','AdminController@books')->name('admin.books');
+        Route::get('books/add','AdminController@booksAdd')->name('admin.books.add');
+        Route::get('members','AdminController@members')->name('admin.members');
+    });
 });
